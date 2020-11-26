@@ -1,0 +1,19 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.weather-cont {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    color: white;
+}
+
+.content-cont {
+    height: 90%;
+}
+
+label {
+    font-weight: bold;
+    font-size: 2rem;
+}
