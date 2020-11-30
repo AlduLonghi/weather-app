@@ -1,6 +1,7 @@
 body {
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Exo', sans-serif;
 }
 
 .weather-cont {
@@ -23,10 +24,22 @@ label {
 }
 
 .icon {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 .black-backg {
     background-color: black;
+}
+
+.temp {
+    font-size: 2.2rem;
+}
+
+.temp-cont {
+    width: 60%;
+}
+
+.spec-container {
+    font-size: 1.5rem;
 }

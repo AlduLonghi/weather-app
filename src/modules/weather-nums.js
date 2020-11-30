@@ -4,12 +4,15 @@ import rain from '../assets/drop.svg';
 
 const weatherNums = (response) => {
     const container = document.createElement('div');
-    container.classList.add('w-50', 'nums-container', 'text-center', 'py-5', 'font-weight-bold');
+    container.classList.add('w-50', 'nums-container', 'text-center', 'py-3', 'font-weight-bold');
     
     const tempContainer = document.createElement('div');
-    tempContainer.classList.add('black-backg', 'mb-5');
+    tempContainer.classList.add('temp-cont', 'black-backg', 'mb-5', 'd-flex', 'justify-content-around', 'align-items-center', 'mx-auto', 'py-3', 'px-3');
+    
+    const spanTemp = document.createElement('span');
 
     const temperature = document.createElement('p');
+    temperature.classList.add('mb-0', 'd-block', 'temp');
     temperature.textContent += `${response.main.temp}°`;
 
     const tempIcon = document.createElement('img');
@@ -25,10 +28,15 @@ const weatherNums = (response) => {
             tempIcon.src = rain;
             break;
     }
-    tempContainer.append(tempIcon, temperature);
+
+    const feelsLike = document.createElement('p');
+    feelsLike.textContent = `Feels like: ${response.main.feels_like}°`;
+
+    spanTemp.append(temperature, feelsLike);
+    tempContainer.append(tempIcon, spanTemp);
 
     const specificContainer = document.createElement('div');
-    specificContainer.classList.add('black-backg')
+    specificContainer.classList.add('black-backg', 'py-3', 'spec-container')
 
     const minTemperature = document.createElement('p');
     minTemperature.textContent += `Min: ${response.main.temp_min}`;
@@ -45,11 +53,11 @@ const weatherNums = (response) => {
     const wind = document.createElement('p');
     wind.textContent += `Wind: ${response.wind.speed}mph`;
 
-    const clouds = document.createElement('p');
-    clouds.textContent += `Clouds: ${response.weather[0].description} ${response.clouds.all}%`;
+    const sky = document.createElement('p');
+    sky.textContent += `Sky: ${response.weather[0].description} ${response.clouds.all}%`;
 
 
-    specificContainer.append(minTemperature, maxTemperature, visibility, clouds, humidity, wind);
+    specificContainer.append(minTemperature, maxTemperature, visibility, sky, humidity, wind);
     container.append(tempContainer, specificContainer);
     return container;
 }
