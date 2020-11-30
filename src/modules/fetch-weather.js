@@ -1,4 +1,4 @@
-import cloudy from '../assets/cloudy.jpg';
+import overcastClouds from '../assets/overcast-clouds.jpg';
 import rainyDay from '../assets/rainy-day.jpg';
 import sunny from '../assets/sunny.jpg';
 import weatherSpec from './weather-specific';
@@ -11,7 +11,7 @@ const gettingWeather = (city) => {
         console.log(response);
         
         if (response.weather[0].main === 'Clouds') {
-            document.body.style.backgroundImage = `url(${cloudy})`;
+            document.body.style.backgroundImage = `url(${overcasClouds})`;
         } else if (response.weather[0].main === 'Clear'){
             document.body.style.backgroundImage = `url(${sunny})`;
         } else if (response.weather[0].main === 'Rain') {

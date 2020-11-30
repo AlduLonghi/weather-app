@@ -5,6 +5,7 @@ const weatherSpecifics = (response) => {
 
    const container = document.createElement('div');
    container.classList.add('weather-specific');
+   container.setAttribute('id', 'weath-spec');
 
    const heading = document.createElement('h1');
    heading.textContent += `Weather in: ${response.name}`;
