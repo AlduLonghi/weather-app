@@ -14,7 +14,7 @@ const onclickEvent = (() => {
         if(divToRemove !== null) {
             divToRemove.remove();
         }
-    
+        
         const city = document.getElementById('city').value;
         console.log(city);
 
