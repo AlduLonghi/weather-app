@@ -1,9 +1,11 @@
 const celsiusOrFahrenheit = (degrees, unit) => {
+  let degreesUnit;
   if (unit === 'celsius') {
-    return Math.round(degrees - 273.15);
+    degreesUnit = Math.round(degrees - 273.15);
   } if (unit === 'fahrenhait') {
-    return Math.round(((degrees - 273.15) * 9) / 5 + 32);
+    degreesUnit = Math.round(((degrees - 273.15) * 9) / 5 + 32);
   }
+  return degreesUnit;
 };
 
 export default celsiusOrFahrenheit;

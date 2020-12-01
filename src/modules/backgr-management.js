@@ -3,6 +3,7 @@ import rainyDay from '../assets/rainy-day.jpg';
 import sunny from '../assets/sunny.jpg';
 import scattered from '../assets/scattered-clouds.jpg';
 import mist from '../assets/mist.jpg';
+import haze from '../assets/haze.jpg';
 
 const backgroundChange = (response) => {
   if (response.weather[0].description === 'overcast clouds') {
@@ -17,6 +18,8 @@ const backgroundChange = (response) => {
     document.body.style.backgroundImage = `url(${rainyDay})`;
   } else if (response.weather[0].description === 'mist') {
     document.body.style.backgroundImage = `url(${mist})`;
+  } else if (response.weather[0].description === 'haze') {
+    document.body.style.backgroundImage = `url(${haze})`;
   }
 };
 

@@ -1,5 +1,5 @@
 import celOrFah from './celsius-fahrenheit';
-  
+
 const weatherNums = (response) => {
   const container = document.createElement('div');
   container.classList.add('w-100', 'nums-container', 'text-center', 'mt-5', 'font-weight-bold');
@@ -41,7 +41,7 @@ const weatherNums = (response) => {
     minTemp.innerHTML = `Min: ${celOrFah(response.main.temp_min, 'celsius')}°`;
     maxTemp.innerHTML = `Max: ${celOrFah(response.main.temp_max, 'celsius')}°`;
     feelsLike.innerHTML = `Feels like: ${celOrFah(response.main.feels_like, 'celsius')}°`;
-  }
+  };
 
   const btnFahrenheit = document.createElement('button');
   btnFahrenheit.setAttribute('id', 'btn-fahrenheit');
@@ -53,12 +53,12 @@ const weatherNums = (response) => {
     const minTemp = document.getElementById('min-temp');
     const maxTemp = document.getElementById('max-temp');
     const feelsLike = document.getElementById('feels-like');
-    
+
     mainTemp.innerHTML = `${celOrFah(response.main.temp, 'fahrenhait')}°`;
     minTemp.innerHTML = `Min: ${celOrFah(response.main.temp_min, 'fahrenhait')}°`;
     maxTemp.innerHTML = `Max: ${celOrFah(response.main.temp_max, 'fahrenhait')}°`;
     feelsLike.innerHTML = `Feels like: ${celOrFah(response.main.feels_like, 'fahrenhait')}°`;
-  }
+  };
 
   spanButtons.append(btnCelsius, btnFahrenheit);
   spanTemp.append(temperature, feelsLike, spanButtons);
@@ -82,7 +82,7 @@ const weatherNums = (response) => {
   visibility.textContent += `Visibility: ${response.visibility} meters`;
 
   const wind = document.createElement('p');
-  wind.textContent += `Wind: ${response.wind.speed}km/h`;
+  wind.textContent += `Wind: ${response.wind.speed}m/s`;
 
   const sky = document.createElement('p');
   sky.textContent += `Sky: ${response.weather[0].description} ${response.clouds.all}%`;
@@ -91,7 +91,8 @@ const weatherNums = (response) => {
   pressure.textContent += `Pressure: ${response.main.pressure}.00hPa`;
 
 
-  specificContainer.append(minTemperature, maxTemperature, visibility, sky, humidity, wind, pressure);
+  specificContainer.append(minTemperature, maxTemperature,
+    visibility, sky, humidity, wind, pressure);
   container.append(tempContainer, specificContainer);
   return container;
 };

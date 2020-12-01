@@ -1,4 +1,3 @@
-import weatherContainer from './weather-container';
 import weatherNums from './weather-nums';
 
 const weatherSpecifics = (response) => {

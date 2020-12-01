@@ -49,3 +49,7 @@ label {
     border-right: 30px solid black;
     width: 85%;
 }
+
+.error-div {
+    font-size: 2.7rem;
+}
