@@ -4,31 +4,20 @@ import weatherCont from './modules/weather-container';
 import gettingWeather from './modules/fetch-weather';
 
 weatherCont();
-gettingWeather('london')
+gettingWeather('london');
 
 const onclickEventSearch = (() => {
-    const btn = document.getElementById('search-btn');
+  const btn = document.getElementById('search-btn');
 
-    btn.onclick = () => {
-        const divToRemove = document.getElementById('weath-spec');
-        if(divToRemove !== null) {
-            divToRemove.remove();
-        }
-        
-        const city = document.getElementById('city').value;
-        console.log(city);
-
-        gettingWeather(city);
+  btn.onclick = () => {
+    const divToRemove = document.getElementById('weath-spec');
+    if (divToRemove !== null) {
+      divToRemove.remove();
     }
+
+    const city = document.getElementById('city').value;
+    console.log(city);
+
+    gettingWeather(city);
+  };
 })();
-
-const onclickEventUnit = (() => {
-    const btnCel = document.getElementById('btn-celsius');
-    const btnFah = document.getElementById('btn-fahrenheit');
-
-    
-}
-
-)
-
-
