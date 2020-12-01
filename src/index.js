@@ -6,7 +6,7 @@ import gettingWeather from './modules/fetch-weather';
 weatherCont();
 gettingWeather('london')
 
-const onclickEvent = (() => {
+const onclickEventSearch = (() => {
     const btn = document.getElementById('search-btn');
 
     btn.onclick = () => {
@@ -22,5 +22,13 @@ const onclickEvent = (() => {
     }
 })();
 
+const onclickEventUnit = (() => {
+    const btnCel = document.getElementById('btn-celsius');
+    const btnFah = document.getElementById('btn-fahrenheit');
+
+    
+}
+
+)
 
 
