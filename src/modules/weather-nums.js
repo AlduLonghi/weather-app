@@ -1,6 +1,8 @@
 import celOrFah from './celsius-fahrenheit';
 
-const weatherNums = ({wind, visibility, main, weather, clouds}) => {
+const weatherNums = ({
+  wind, visibility, main, weather, clouds,
+}) => {
   const container = document.createElement('div');
   container.classList.add('w-100', 'nums-container', 'text-center', 'mt-5', 'font-weight-bold');
 
