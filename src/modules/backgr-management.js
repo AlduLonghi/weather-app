@@ -1,25 +1,25 @@
-import overcastClouds from '../assets/overcast-clouds.jpg';
-import rainyDay from '../assets/rainy-day.jpg';
-import sunny from '../assets/sunny.jpg';
-import scattered from '../assets/scattered-clouds.jpg';
-import mist from '../assets/mist.jpg';
-import haze from '../assets/haze.jpg';
-
 const backgroundChange = (response) => {
+  const body = document.querySelector('body');
   if (response.weather[0].description === 'overcast clouds') {
-    document.body.style.backgroundImage = `url(${overcastClouds})`;
+    body.classList = ''
+    body.classList.add('overcast-clouds');
   } else if (response.weather[0].description === 'broken clouds'
     || response.weather[0].description === 'scattered clouds'
     || response.weather[0].description === 'few clouds') {
-    document.body.style.backgroundImage = `url(${scattered})`;
+      body.classList = ''
+      body.classList.add('scattered-clouds');
   } else if (response.weather[0].main === 'Clear') {
-    document.body.style.backgroundImage = `url(${sunny})`;
+    body.classList = ''
+    body.classList.add('sunny');
   } else if (response.weather[0].main === 'Rain') {
-    document.body.style.backgroundImage = `url(${rainyDay})`;
+    body.classList = ''
+    body.classList.add('rainy');
   } else if (response.weather[0].description === 'mist') {
-    document.body.style.backgroundImage = `url(${mist})`;
+    body.classList = ''
+    body.classList.add('mist');
   } else if (response.weather[0].description === 'haze') {
-    document.body.style.backgroundImage = `url(${haze})`;
+    body.classList = ''
+    body.classList.add('haze');
   }
 };
 
