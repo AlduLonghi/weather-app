@@ -1,0 +1,79 @@
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Exo', sans-serif;
+}
+
+.weather-cont {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  color: white;
+}
+
+.sunny {
+  background-image: url(./assets/sunny.jpg);
+}
+
+.rainy {
+  background-image: url(./assets/rainy-day.jpg);
+}
+
+.overcast-clouds {
+  background-image: url(./assets/overcast-clouds.jpg);
+}
+
+.scattered-clouds {
+  background-image: url(./assets/scattered-clouds.jpg);
+}
+
+.haze {
+  background-image: url(./assets/haze.jpg);
+}
+
+.mist {
+  background-image: url(./assets/mist.jpg);
+}
+
+.content-cont {
+  height: 90%;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.nums-container {
+  font-size: 1.2rem;
+}
+
+.icon {
+  width: 6rem;
+  height: 6rem;
+}
+
+.black-backg {
+  background-color: black;
+}
+
+.temp {
+  font-size: 2.2rem;
+}
+
+.temp-cont {
+  width: 50%;
+}
+
+.spec-container {
+  font-size: 1.5rem;
+}
+
+.weather-specific {
+  border-left: 30px solid black;
+  border-right: 30px solid black;
+  width: 85%;
+}
+
+.error-div {
+  font-size: 2.7rem;
+}
