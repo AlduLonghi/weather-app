@@ -17,7 +17,7 @@ const inputForm = () => {
     searchBtn.type = 'button';
     searchBtn.textContent += 'Search';
     searchBtn.setAttribute('id', 'search-btn')
-    searchBtn.classList.add('btn', 'btn-primary', 'mt-3');
+    searchBtn.classList.add('btn', 'btn-small', 'btn-primary', 'mt-3');
     
     inputContainer.append(label, textInput, searchBtn);
     form.appendChild(inputContainer);

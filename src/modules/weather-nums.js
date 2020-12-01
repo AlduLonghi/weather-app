@@ -1,10 +1,6 @@
-import sun from '../assets/sun.svg';
-import cloud from '../assets/cloud.svg';
-import rain from '../assets/drop.svg';
-
 const weatherNums = (response) => {
     const container = document.createElement('div');
-    container.classList.add('w-50', 'nums-container', 'text-center', 'py-3', 'font-weight-bold');
+    container.classList.add('w-100', 'nums-container', 'text-center', 'mt-5', 'font-weight-bold');
     
     const tempContainer = document.createElement('div');
     tempContainer.classList.add('temp-cont', 'black-backg', 'mb-5', 'd-flex', 'justify-content-around', 'align-items-center', 'mx-auto', 'py-3', 'px-3');
@@ -17,17 +13,7 @@ const weatherNums = (response) => {
 
     const tempIcon = document.createElement('img');
     tempIcon.classList.add('icon');
-    switch (response.weather[0].main) {
-        case 'Clear':
-            tempIcon.src = sun;
-            break;
-        case 'Clouds':
-            tempIcon.src = cloud;
-            break;
-        case 'Rain':
-            tempIcon.src = rain;
-            break;
-    }
+    tempIcon.src = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`
 
     const feelsLike = document.createElement('p');
     feelsLike.textContent = `Feels like: ${response.main.feels_like}°`;
@@ -51,13 +37,16 @@ const weatherNums = (response) => {
     visibility.textContent += `Visibility: ${response.visibility} meters`;
 
     const wind = document.createElement('p');
-    wind.textContent += `Wind: ${response.wind.speed}mph`;
+    wind.textContent += `Wind: ${response.wind.speed}km/h`;
 
     const sky = document.createElement('p');
     sky.textContent += `Sky: ${response.weather[0].description} ${response.clouds.all}%`;
 
+    const pressure = document.createElement('p');
+    pressure.textContent += `Pressure: ${response.main.pressure}.00hPa`;
 
-    specificContainer.append(minTemperature, maxTemperature, visibility, sky, humidity, wind);
+
+    specificContainer.append(minTemperature, maxTemperature, visibility, sky, humidity, wind, pressure);
     container.append(tempContainer, specificContainer);
     return container;
 }

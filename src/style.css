@@ -16,7 +16,7 @@ body {
 
 label {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .nums-container {
@@ -24,8 +24,8 @@ label {
 }
 
 .icon {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
 }
 
 .black-backg {
@@ -37,9 +37,15 @@ label {
 }
 
 .temp-cont {
-    width: 60%;
+    width: 50%;
 }
 
 .spec-container {
     font-size: 1.5rem;
+}
+
+.weather-specific {
+    border-left: 30px solid black;
+    border-right: 30px solid black;
+    width: 85%;
 }
