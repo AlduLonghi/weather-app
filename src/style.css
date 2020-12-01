@@ -1,55 +1,55 @@
 body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Exo', sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Exo', sans-serif;
 }
 
 .weather-cont {
-    background-color: rgba(0, 0, 0, 0.8);
-    height: 100vh;
-    color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  color: white;
 }
 
 .content-cont {
-    height: 90%;
+  height: 90%;
 }
 
 label {
-    font-weight: bold;
-    font-size: 1.7rem;
+  font-weight: bold;
+  font-size: 1.7rem;
 }
 
 .nums-container {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .icon {
-    width: 6rem;
-    height: 6rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 .black-backg {
-    background-color: black;
+  background-color: black;
 }
 
 .temp {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 
 .temp-cont {
-    width: 50%;
+  width: 50%;
 }
 
 .spec-container {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .weather-specific {
-    border-left: 30px solid black;
-    border-right: 30px solid black;
-    width: 85%;
+  border-left: 30px solid black;
+  border-right: 30px solid black;
+  width: 85%;
 }
 
 .error-div {
-    font-size: 2.7rem;
+  font-size: 2.7rem;
 }
