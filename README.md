@@ -21,7 +21,7 @@ A todo list app built with javascript
 
 ## Live Demo
 
-- [Weather App](https://raw.githack.com/AlduLonghi/weather-app/weather-app/dist/index.html)
+- [Weather App](https://hopeful-ardinghelli-3b387c.netlify.app/)
 
 ## How to run this project on your local machine
 
