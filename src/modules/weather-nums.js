@@ -2,13 +2,13 @@ import celOrFah from './celsius-fahrenheit';
 import pCreator from './helpers';
 
 const changingUnits = (main, unit) => {
-    document.getElementById('main-temp')
+  document.getElementById('main-temp')
     .innerHTML = `${celOrFah(main.temp, unit)}°`;
-    document.getElementById('min-temp')
+  document.getElementById('min-temp')
     .innerHTML = `Min: ${celOrFah(main.temp_min, unit)}°`;
-    document.getElementById('max-temp')
+  document.getElementById('max-temp')
     .innerHTML = `Max: ${celOrFah(main.temp_max, unit)}°`;
-    document.getElementById('feels-like')
+  document.getElementById('feels-like')
     .innerHTML = `Feels like: ${celOrFah(main.feels_like, unit)}°`;
 };
 
@@ -47,7 +47,7 @@ const weatherNums = ({
     btn.classList.add('btn', 'btn-sm', btnClass[i]);
     btn.textContent += btnText[i];
     btn.onclick = () => {
-    changingUnits(main, btnUnit[i]);
+      changingUnits(main, btnUnit[i]);
     };
 
     spanButtons.appendChild(btn);
@@ -58,7 +58,7 @@ const weatherNums = ({
 
   const specificContainer = document.createElement('div');
   specificContainer.classList.add('black-backg', 'py-3', 'spec-container');
-  
+
   const minTemperature = pCreator(`Min: ${celOrFah(main.temp_min, 'celsius')}°`, 'min-temp');
   const maxTemperature = pCreator(`Max: ${celOrFah(main.temp_max, 'celsius')}°`, 'max-temp');
   const humidity = pCreator(`Humidity: ${main.humidity}%`);
@@ -66,7 +66,7 @@ const weatherNums = ({
   const windText = pCreator(`Wind: ${wind.speed}m/s`);
   const sky = pCreator(`Sky: ${weather[0].description} ${clouds.all}%`);
   const pressure = pCreator(`Pressure: ${main.pressure}.00hPa`);
- 
+
   specificContainer.append(minTemperature, maxTemperature,
     visibilityText, sky, humidity, windText, pressure);
   container.append(tempContainer, specificContainer);

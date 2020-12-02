@@ -5,7 +5,6 @@ const gettingWeather = (city) => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=bde3f0994e6528c00d440747db847b86`,
     { mode: 'cors' }).then(response => response.json())
     .then(response => {
-      console.log(response);
       backgroundChange(response);
       weatherSpec(response);
     })
