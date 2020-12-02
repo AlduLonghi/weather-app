@@ -1,4 +1,16 @@
 import celOrFah from './celsius-fahrenheit';
+import pCreator from './helpers';
+
+const changingUnits = (main, unit) => {
+    document.getElementById('main-temp')
+    .innerHTML = `${celOrFah(main.temp, unit)}°`;
+    document.getElementById('min-temp')
+    .innerHTML = `Min: ${celOrFah(main.temp_min, unit)}°`;
+    document.getElementById('max-temp')
+    .innerHTML = `Max: ${celOrFah(main.temp_max, unit)}°`;
+    document.getElementById('feels-like')
+    .innerHTML = `Feels like: ${celOrFah(main.feels_like, unit)}°`;
+};
 
 const weatherNums = ({
   wind, visibility, main, weather, clouds,
@@ -15,84 +27,46 @@ const weatherNums = ({
   const spanButtons = document.createElement('span');
   spanButtons.classList.add('d-flex', 'justify-content-around');
 
-  const temperature = document.createElement('p');
-  temperature.setAttribute('id', 'main-temp');
+  const temperature = pCreator(`${celOrFah(main.temp, 'celsius')}°`, 'main-temp');
   temperature.classList.add('mb-0', 'd-block', 'temp');
-  temperature.textContent += `${celOrFah(main.temp, 'celsius')}°`;
 
   const tempIcon = document.createElement('img');
   tempIcon.classList.add('icon');
   tempIcon.src = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
-  const feelsLike = document.createElement('p');
-  feelsLike.setAttribute('id', 'feels-like');
-  feelsLike.textContent = `Feels like: ${celOrFah(main.feels_like, 'celsius')}°`;
+  const feelsLike = pCreator(`Feels like: ${celOrFah(main.feels_like, 'celsius')}°`, 'feels-like');
 
-  const btnCelsius = document.createElement('button');
-  btnCelsius.setAttribute('id', 'btn-celsius');
-  btnCelsius.type = 'button';
-  btnCelsius.classList.add('btn', 'btn-sm', 'btn-danger');
-  btnCelsius.textContent += 'C°';
-  btnCelsius.onclick = () => {
-    const mainTemp = document.getElementById('main-temp');
-    const minTemp = document.getElementById('min-temp');
-    const maxTemp = document.getElementById('max-temp');
-    const feelsLike = document.getElementById('feels-like');
+  const btnUnit = ['celsius', 'fahrenheit'];
+  const btnClass = ['btn-danger', 'btn-success'];
+  const btnText = ['C°', 'F°'];
 
-    mainTemp.innerHTML = `${celOrFah(main.temp, 'celsius')}°`;
-    minTemp.innerHTML = `Min: ${celOrFah(main.temp_min, 'celsius')}°`;
-    maxTemp.innerHTML = `Max: ${celOrFah(main.temp_max, 'celsius')}°`;
-    feelsLike.innerHTML = `Feels like: ${celOrFah(main.feels_like, 'celsius')}°`;
-  };
+  for (let i = 0; i < btnUnit.length; i += 1) {
+    const btn = document.createElement('button');
+    btn.setAttribute('id', `btn-${btnUnit[i]}`);
+    btn.type = 'button';
+    btn.classList.add('btn', 'btn-sm', btnClass[i]);
+    btn.textContent += btnText[i];
+    btn.onclick = () => {
+    changingUnits(main, btnUnit[i]);
+    };
 
-  const btnFahrenheit = document.createElement('button');
-  btnFahrenheit.setAttribute('id', 'btn-fahrenheit');
-  btnFahrenheit.type = 'button';
-  btnFahrenheit.classList.add('btn', 'btn-sm', 'btn-success');
-  btnFahrenheit.textContent += 'F°';
-  btnFahrenheit.onclick = () => {
-    const mainTemp = document.getElementById('main-temp');
-    const minTemp = document.getElementById('min-temp');
-    const maxTemp = document.getElementById('max-temp');
-    const feelsLike = document.getElementById('feels-like');
+    spanButtons.appendChild(btn);
+  }
 
-    mainTemp.innerHTML = `${celOrFah(main.temp, 'fahrenhait')}°`;
-    minTemp.innerHTML = `Min: ${celOrFah(main.temp_min, 'fahrenhait')}°`;
-    maxTemp.innerHTML = `Max: ${celOrFah(main.temp_max, 'fahrenhait')}°`;
-    feelsLike.innerHTML = `Feels like: ${celOrFah(main.feels_like, 'fahrenhait')}°`;
-  };
-
-  spanButtons.append(btnCelsius, btnFahrenheit);
   spanTemp.append(temperature, feelsLike, spanButtons);
   tempContainer.append(tempIcon, spanTemp);
 
   const specificContainer = document.createElement('div');
   specificContainer.classList.add('black-backg', 'py-3', 'spec-container');
-
-  const minTemperature = document.createElement('p');
-  minTemperature.setAttribute('id', 'min-temp');
-  minTemperature.textContent += `Min: ${celOrFah(main.temp_min, 'celsius')}°`;
-
-  const maxTemperature = document.createElement('p');
-  maxTemperature.setAttribute('id', 'max-temp');
-  maxTemperature.textContent += `Max: ${celOrFah(main.temp_max, 'celsius')}°`;
-
-  const humidity = document.createElement('p');
-  humidity.textContent += `Humidity: ${main.humidity}%`;
-
-  const visibilityText = document.createElement('p');
-  visibilityText.textContent += `Visibility: ${visibility} meters`;
-
-  const windText = document.createElement('p');
-  windText.textContent += `Wind: ${wind.speed}m/s`;
-
-  const sky = document.createElement('p');
-  sky.textContent += `Sky: ${weather[0].description} ${clouds.all}%`;
-
-  const pressure = document.createElement('p');
-  pressure.textContent += `Pressure: ${main.pressure}.00hPa`;
-
-
+  
+  const minTemperature = pCreator(`Min: ${celOrFah(main.temp_min, 'celsius')}°`, 'min-temp');
+  const maxTemperature = pCreator(`Max: ${celOrFah(main.temp_max, 'celsius')}°`, 'max-temp');
+  const humidity = pCreator(`Humidity: ${main.humidity}%`);
+  const visibilityText = pCreator(`Visibility: ${visibility} meters`);
+  const windText = pCreator(`Wind: ${wind.speed}m/s`);
+  const sky = pCreator(`Sky: ${weather[0].description} ${clouds.all}%`);
+  const pressure = pCreator(`Pressure: ${main.pressure}.00hPa`);
+ 
   specificContainer.append(minTemperature, maxTemperature,
     visibilityText, sky, humidity, windText, pressure);
   container.append(tempContainer, specificContainer);
